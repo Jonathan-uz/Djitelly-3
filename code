@@ -39,12 +39,16 @@ def getKeyboardInput():
 
     return [lr, fb, ud, yv]
 
+def drawPoints():
+    cv2.circle(img, 300, 500), 20, (0, 0, 255), cv.FILLED)
+    
 while True:
 
     vals = getKeyboardInput()
 
     tello.send_rc_control(vals[0], vals[1], vals[2], vals[3])
     img =__np.zeros((1000, 1000, 1000), np.unit8)
+    cv2.imshow("output", img)
 
     #img = tello.get_frame_read().frame
     #img = cv2.resize(img, (360, 240))
